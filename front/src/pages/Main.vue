@@ -109,7 +109,7 @@ export default {
       if(this.searchkeyword == '') {
         alert('키워드가 없습니다!');
       } else {
-        console.log(this.searchkeyword)
+        //console.log(this.searchkeyword)
         axios({
           url: "http://172.16.110.29:33997/search",
           method: "POST",
@@ -117,10 +117,14 @@ export default {
             searchData: this.searchkeyword
           },
         }).then(res => {
+          console.log(res)
           this.contentlist = res.data;
           //this.searchcnt = this.contentlist[Object.keys(this.contentlist).length-1].cnt;
-          this.searchcnt = Object.keys(this.contentlist).length-1
-          this.contentlist.pop();
+          this.searchcnt = Object.keys(this.contentlist).length
+          if(this.searchcnt == -1){
+            this.searchcnt = 0
+          }
+          //this.contentlist.pop();
           //alert('검색완료!');
           this.searchfinish = true;
           this.searchkeyword = '';

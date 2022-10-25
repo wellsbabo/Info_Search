@@ -248,7 +248,7 @@ router.post('/search',(req,res,next) => {
             finalData.push(val)
         }
     }); */
-
+    //console.log(afterStrData)
     //console.log(finalData)
     //const regQuery = new RegExp(req.body.searchData)
     //console.log(regQuery);
@@ -263,6 +263,7 @@ router.post('/search',(req,res,next) => {
         if(err){
             res.json(err)
         }
+        console.log(docs)
         res.json(docs)
         //console.log(finalData)
         }) 
